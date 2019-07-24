@@ -1,5 +1,6 @@
 {% load socialaccount %}
 {% providers_media_js %}
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +12,13 @@
     
     <title>잡학다식</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/blog/">
+    
+
+<!-- CSS -->
+<link rel="stylesheet" href="{% static 'css/base-style.css' %}">
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/blog/">
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/51369bc7c3.js"></script>
 
     <!-- Bootstrap core CSS -->
 <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,80 +27,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <style>
-      .main-home{
-        text-decoration: none
-        !important;
-        color: white;
-      }
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      .head-contents{
-    background: linear-gradient(to top, #a926eb, #d59df1);
-    text-align: center;
-    color: white;
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background-color: #af36ec;
-    border-radius: .3rem;
-    margin: auto 0;
-    height: 200px;
-}
-.form-inline{
-  margin: 0 auto; 
-  width:250px;
-}
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      .wrapper {
-        background-color: black;
-        margin: auto 0;
-        }
-    .sidewrapper{
-    padding-top: 50px; 
-  }
-    .lin:link{
-      text-decoration:none;
-      color: #6791e5;
-    }
-    .lin:hover{
-      text-decoration:none;
-      color: white;
-      background-color: #5f45ff;
-      
-    }
-    .clickbox{
-     width: 190px; height: 80px;  text-align: right;
-          display:table-cell;vertical-align:middle; padding-right:25px;      
-    }
-    .image{
-      width:50%; height:50%; padding-right: 32px;
-    }
-    .col-auto{
-      width: 200px; height: 80px; border: 1px solid #6791e5; border-radius: 1px; 
-    }
-    .info{
-      color: white; text-decoration: none;
-    }
-    .info:hover{
-      color: #6791e5; text-decoration: none;
-    }
-    .profile1{
-      font-size: 16px; display:inline-block; font-weight: bold;
-    }
-    .main-home{
-      display: inline-block;
-    }
-    </style>
+    
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -101,52 +35,128 @@
   </head>
   <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-<h5 class="my-0 mr-md-auto font-weight-normal">잡학다식</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">잡학다식</h5>
+    
       <nav class="my-2 my-md-0 mr-md-3">
-          {% if user.is_authenticated %}
-          <a class="p-2 text-dark" href={% url 'logout' %}>로그아웃</a> {{user.username}} 님이 로그인 중
-          {% else %}
-          <a class="p-2 text-dark" href="{% provider_login_url 'google' %}">구글 로그인</a><br>
-          <a class="p-2 text-dark" href="{% url 'login' %}">로그인</a><br>
+        {% if user.is_authenticated %}
+        <a class="p-2 text-dark" href={% url 'logout' %}>로그아웃</a> {{user.username}} 님이 로그인 중
+        {% else %}
+        <a class="p-2 text-dark" href="{% provider_login_url 'google' %}">구글 로그인</a><br>
+        <a class="p-2 text-dark" href="{% url 'login' %}">로그인</a><br>
     
       </nav>
-      <a class="btn btn-outline-primary" href="{% url 'signup' %}">Sign up</a><p></p>
+    
+      <a class="btn btn-outline-primary" href="{% url 'signup' %}">Sign up</a>
+      <p></p>
+    
       {% endif %}
+    
     </div>
-</div>
-    <div class= "head-contents">
-      <!--유저정보-->
+      <div class="body">
+        <div class="head-contents">
+          <!-- nav -->
+      
+          <!-- user info & menu -->
+           <!--유저정보-->
+      <a class="main-home" href="{% url 'home' %}">
+        <h1>잡학다식</h1>
+      </a>
       <div class="profile1">
         {% if user.is_authenticated %}
-        <img src="" alt="사진" class="img-circle"> <br>
+        <img src="{% static 'user.png'%}" alt="오류" class="img-circle"> <br>
         {{user.username}} 님 <br>
         <a class="info" href="{% url 'login' %}">내 정보</a>
         <a class="info" href="{% url 'logout' %}">로그아웃</a>
         {% else %}
-        <img src="" alt="사진" class="img-circle"> <br>
+        <img src="" alt="" class="img-circle"> <br>
         <a class="info" href="{% url 'login' %}">로그인</a>
         <a class="info" href="{% url 'signup' %}">회원가입</a>
         {% endif %} 
-      </div>  
-      <a class = "main-home" href= "{% url 'home' %}"><h1>잡학다식</h1></a>
-      <form class="form-inline" action="{% url 'search' %}" method="get">
-        <div class="input-group">
-            <select name="search_filter" class="form-control" style="margin-right: 10px;">
-                <option value="title">제목</option>
-                <option value="body">내용</option>
-            </select>
-            <input type="text" class="form-control" name='q' style="margin-right: 10px;" required="true">
-            <button class="btn btn-secondary" type="submit">검색</button>
+      </div>
+        <!--왼쪽 메뉴바-->
+        <aside class="col-md-4 blog-sidebar">
+          <div class="sidewrapper">
+            <div class="row">
+              <div class="col-3"></div>
+              <a href="" class="lin">
+                <div class="col-auto">
+                  <div class="clickbox">
+                    <img class="image" src="{% static 'politics.png'%}">정치
+                  </div>
+                </div>
+              </a>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-3"></div>
+              <a href="" class="lin">
+                <div class="col-auto">
+        
+                  <div class="clickbox">
+                    <img class="image" src="{% static 'social.png'%}">사회</div>
+        
+                </div>
+              </a>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-3"></div>
+              <a href="" class="lin">
+                <div class="col-auto">
+        
+                  <div class="clickbox"><img class="image" src="{% static 'IT.png'%}"> &nbsp;&nbsp;&nbsp; IT</div>
+        
+                </div>
+              </a>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-3"></div>
+              <a href="" class="lin">
+                <div class="col-auto">
+        
+                  <div class="clickbox"><img class="image" src="{% static 'economy.png'%}"> 경제</div>
+        
+                </div>
+              </a>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-3"></div>
+              <a href="" class="lin">
+                <div class="col-auto">
+                  <div class="clickbox"><img class="image" src="{% static 'science.png'%}"> 과학</div>
+                </div>
+              </a>
+            </div>
+          </div>
+      
+        <!-- search -->
+        <div class="search-input">
+          <input type="text" class="search" value="검색">
+          <i class="fa fa-search" aria-hidden="true"></i>
         </div>
-    </form>
-    </div>
-    <br><br>
+        
+        <!-- content  -->
+        <div class="content-detail">
+          <br>
+          <div class="content-detail-text">
+            {% block contents %}
+            {% endblock %}
+          </div>
+        </div>
 
-{% block contents %}
+        </aside>    
 
-{% endblock %}
 
-</div>
+
+
+<!-- footer -->
+
+
+
+
+
 <div class="wrapper1">
 
   <p>잡학다식 built for <a href="https://getbootstrap.com/">한국기행</a> by <a href="https://twitter.com/mdo">@PGH</a>.</p>
