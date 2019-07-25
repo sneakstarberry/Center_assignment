@@ -67,17 +67,7 @@ html,body{
         -ms-user-select: none;
         user-select: none;
       }
-      .head-contents{
-    background: linear-gradient(to top, #a926eb, #d59df1);
-    text-align: center;
-    color: white;
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background-color: #af36ec;
-    border-radius: .3rem;
-    margin: auto 0;
-    height: 200px;
-}
+      
 .form-inline{
   margin: 0 auto; 
   width:250px;

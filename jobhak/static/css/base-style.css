@@ -17,10 +17,11 @@ html,body{
 
 .head-contents {
     text-align: center;
-    height: 300px;
+    height: 200px;
     width: 100%;
     background: linear-gradient( to bottom, #a98ec5, #6691e4);
     border-radius: 0 0 20px 20px;
+    color: white;
 }
 
 .search-input {
@@ -31,6 +32,8 @@ html,body{
     width: 640px;
     margin:100px 0 20px 500px;
     display: inline-block;
+    position: relative;
+    bottom: 200px;
 }
 
 .search {
@@ -48,13 +51,15 @@ html,body{
     border: #6691e4 1px;
     margin:0 0 20px 500px;
     display: inline-block;
+    position: relative;
+    bottom: 200px;
 }
 
 .content-detail-text {
     margin: 10px;
 }
 
-      .main-home{
+.main-home{
         text-decoration: none
         !important;
         color: white;
@@ -67,17 +72,7 @@ html,body{
         -ms-user-select: none;
         user-select: none;
       }
-      .head-contents{
-    background: linear-gradient(to top, #a926eb, #d59df1);
-    text-align: center;
-    color: white;
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    background-color: #af36ec;
-    border-radius: .3rem;
-    margin: auto 0;
-    height: 200px;
-}
+      
 .form-inline{
   margin: 0 auto; 
   width:250px;
@@ -118,7 +113,7 @@ html,body{
       color: white; text-decoration: none;
     }
     .info:hover{
-      color: #6791e5; text-decoration: none;
+      color: #0048d8; text-decoration: none;
     }
     .profile1{
       font-size: 16px; font-weight: bold; height: 130px; text-align: left; margin-left: 38px;
@@ -131,5 +126,7 @@ html,body{
     }
     .wrapper1{
       text-align: center;
+      position: relative;
+      top: 220px;
     }
     
