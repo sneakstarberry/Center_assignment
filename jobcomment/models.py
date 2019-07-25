@@ -43,3 +43,6 @@ class Comment(models.Model):
 
 class Login(models.Model):
     login_title = models.CharField(max_length=200)
+
+class media(models.Model):
+    
