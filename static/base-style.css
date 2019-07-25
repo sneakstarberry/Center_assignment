@@ -6,7 +6,7 @@ html,body{
 .body {
     width: 100%;
     min-height: 100%;
-    background-image: url('background.png');
+    background-image: src('background.png');
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
