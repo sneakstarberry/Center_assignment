@@ -101,7 +101,7 @@ def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
-            auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            auth.login(request, user)
             return redirect('home')
     return render(request, 'signup.html')
 
